@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nanum Gothic', sans-serif;
+        }
+        .container {
+        background-image: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayn_0.jpg');
+        background-size: cover;
+        width: 1280px;
+        height: 720px;
+        display: flex;
+        align-items: center;
+        }
+        .frame {
+        width: 500px;
+        height: 600px;
+        margin-left: 50px;
+        background-color: rgba(100, 100, 100, .4);
+        filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 800;
+        }
+        .kda {
+        margin-top: 2rem;
+        color: yellow;
+        font-size: 6rem;
+        display: flex;
+        justify-content: center;
+        }
+        .match {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        font-size: 3rem;
+        }
+        .mvp {
+        font-size: 5rem;
+        }
+        .vs {
+        font-size: 2rem;
+        }
+        .region {
+        background-color: aquamarine;
+        color: #444;
+        padding: .5rem 1.5rem;
+        border-radius: 2rem;
+        font-size: 2rem;
+        }
+        .patch {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+    <div class="frame">
+        <div class="kda">
+        <p>8 / 1 / 9</p>
+        </div>
+        <div class="match">
+        <p class="mvp">Kayn</p>
+        <p class="vs">vs</p>
+        <p>Lillia</p>
+        </div>
+        <div class="region">
+        <p>EUW</p>
+        </div>
+        <div class="patch">
+        <p>Patch 12.12</p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
