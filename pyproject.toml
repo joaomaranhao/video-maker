@@ -5,7 +5,7 @@ description = ""
 authors = ["João Maranhão <joaofelipemaranhao@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 selenium = "^4.3.0"
 webdriver-manager = "^3.7.1"
 

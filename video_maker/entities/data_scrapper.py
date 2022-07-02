@@ -15,7 +15,8 @@ class DataScrapper:
                         }
         self.__options.add_experimental_option('prefs', self.__prefs)
         self.__options.headless = True
-        self.__options.binary_location = self.__linux_binary_loation
+        # self.__options.binary_location = self.__linux_binary_loation
+        self.__options.binary_location = self.__windows_binary_location
         self.driver = webdriver.Chrome(
             service=BraveService(
                 ChromeDriverManager(chrome_type=ChromeType.BRAVE).install()),
