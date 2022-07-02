@@ -1,5 +1,4 @@
 import os
-from pprint import pprint
 from time import sleep
 from usecases.data import load
 from entities.data_scrapper import DataScrapper
@@ -21,9 +20,9 @@ class CreateThumbnail:
             region=self.lol_data['region'],
             patch=self.lol_data['patch']
         )
-        cwd = os.getcwd()
-        html_path = os.path.join(cwd, 'assets', 'thumbnail.html')
-        self.scrapper.driver.get(html_path)
+        html_path = os.path.abspath('assets/thumbnail.html')
+        print(html_path)
+        self.scrapper.driver.get('file://' + html_path)
         sleep(2)
         self.scrapper.driver.set_window_size(1280, 720)
         self.scrapper.driver.save_screenshot('./assets/thumb.png')

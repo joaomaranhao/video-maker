@@ -1,3 +1,4 @@
+import sys
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as BraveService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -15,8 +16,10 @@ class DataScrapper:
                         }
         self.__options.add_experimental_option('prefs', self.__prefs)
         self.__options.headless = True
-        # self.__options.binary_location = self.__linux_binary_loation
-        self.__options.binary_location = self.__windows_binary_location
+        if sys.platform == 'linux' or sys.platform == 'linux2':
+            self.__options.binary_location = self.__linux_binary_loation
+        if sys.platform == 'win32':
+            self.__options.binary_location = self.__windows_binary_location
         self.driver = webdriver.Chrome(
             service=BraveService(
                 ChromeDriverManager(chrome_type=ChromeType.BRAVE).install()),
