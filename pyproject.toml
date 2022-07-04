@@ -8,6 +8,8 @@ authors = ["João Maranhão <joaofelipemaranhao@gmail.com>"]
 python = "^3.9"
 selenium = "^4.3.0"
 webdriver-manager = "^3.7.1"
+fastapi = "^0.78.0"
+uvicorn = {extras = ["standard"], version = "^0.18.2"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
