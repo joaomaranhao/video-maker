@@ -10,6 +10,7 @@ selenium = "^4.3.0"
 webdriver-manager = "^3.7.1"
 fastapi = "^0.78.0"
 uvicorn = {extras = ["standard"], version = "^0.18.2"}
+google-api-python-client = "^2.52.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
