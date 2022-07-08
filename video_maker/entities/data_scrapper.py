@@ -11,8 +11,10 @@ class DataScrapper:
         self.__linux_binary_loation = '/usr/bin/brave-browser'
         self.__windows_binary_location = r'C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe'
         self.__options = webdriver.ChromeOptions()
+        self.__download_path = r'C:\youtube\lol\replays'
         self.__prefs = {'download.prompt_for_download': False,
                         'profile.default_content_settings.popups': 0,
+                        'download.default.directory': self.__download_path
                         }
         self.__options.add_experimental_option('prefs', self.__prefs)
         self.__options.headless = True
