@@ -1,6 +1,5 @@
 import os
 from time import sleep
-from usecases.data import load
 from entities.data_scrapper import DataScrapper
 from entities.match_data import MatchData
 
@@ -11,7 +10,8 @@ class CreateThumbnail:
         self.lol_data = data
 
     def create_thumbnail(self):
-        champion = self.lol_data['mvp']['champion'].replace("'", "").capitalize()
+        champion = self.lol_data['mvp']['champion'].replace(
+            "'", "").capitalize()
         self.__create_html(
             kda=self.lol_data['mvp']['kda'],
             imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{champion}_0.jpg',
