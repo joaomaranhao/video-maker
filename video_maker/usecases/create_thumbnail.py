@@ -8,6 +8,7 @@ class CreateThumbnail:
     def __init__(self, data_scrapper: DataScrapper, data: MatchData) -> None:
         self.scrapper = data_scrapper
         self.lol_data = data
+        self.__thumb_path = r'C:\youtube\lol\thumb\thumb.png'
 
     def create_thumbnail(self):
         champion = self.lol_data['mvp']['champion'].replace(
@@ -21,11 +22,10 @@ class CreateThumbnail:
             patch=self.lol_data['patch']
         )
         html_path = os.path.abspath('assets/thumbnail.html')
-        print(html_path)
         self.scrapper.driver.get('file://' + html_path)
         sleep(2)
-        self.scrapper.driver.set_window_size(1280, 720)
-        self.scrapper.driver.save_screenshot('./assets/thumb.png')
+        self.scrapper.driver.set_window_size(1280, 805)
+        self.scrapper.driver.save_screenshot(self.__thumb_path)
         self.scrapper.driver.quit()
 
     def __create_html(self, kda: str, mvp: str, vs: str, region: str, patch: str, imgUrl: str):
