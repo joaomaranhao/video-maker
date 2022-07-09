@@ -128,3 +128,4 @@ class ScrapLolData(DataScrapper):
         self.driver.execute_script("arguments[0].click();", watch_button)
         sleep(1)
         self.driver.execute_script("arguments[0].click();", download_button)
+        sleep(2)
