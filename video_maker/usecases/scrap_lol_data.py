@@ -37,6 +37,7 @@ class ScrapLolData(DataScrapper):
         self.match_data['patch'] = patch
         elements = self.driver.find_elements(
             by=By.XPATH, value=self.__champions_xpath_selector)
+        elements[0].get_dom_attribute('title')
         champions = self.__get_champions_names(elements=elements)
         self.match_data['team1']['players'] = self.__create_team_one(
             text_list=text_list, champions=champions)
@@ -57,13 +58,10 @@ class ScrapLolData(DataScrapper):
         self.quit()
 
     def __get_champions_names(self, elements: list) -> list[str]:
-        names = []
-        for i in range(0, 40):
-            names.append(elements[i].accessible_name)
-        names = list(filter(None, names))
         champions = []
-        for i in range(0, 30, 3):
-            champions.append(names[i])
+        for i in range(0, 38):
+            if elements[i].get_dom_attribute('title') is not None:
+                champions.append(elements[i].get_dom_attribute('title'))
         return champions
 
     def __create_player(self, name: str, kda: str, rank: str, champion: str) -> Player:
