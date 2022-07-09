@@ -48,6 +48,9 @@ class ScrapLolData(DataScrapper):
                                                  ]['players'][mvp_data['player_index']]
         self.match_data['loser'] = self.match_data[mvp_data['loser_team']
                                                    ]['players'][mvp_data['player_index']]['champion']
+        self.match_data['player_role'] = mvp_data['player_role']
+        self.match_data['player_index'] = str(
+            int(mvp_data['player_index']) + 1)
         region_link = self.driver.find_element(
             by=By.XPATH, value=self.__region_xpath)
         link_array = region_link.get_property('href').split('/')
@@ -114,10 +117,12 @@ class ScrapLolData(DataScrapper):
                 loser_team = 'team1'
                 kdas.append(int(player['kda'].split(' ')[0]))
         player_index = kdas.index(max(kdas))
+        roles = ['Top', 'Jungle', 'Mid', 'ADC', 'Support']
         return {
             "team": team,
             "player_index": player_index,
-            "loser_team": loser_team
+            "loser_team": loser_team,
+            "player_role": roles[player_index]
         }
 
     def __download_match(self):

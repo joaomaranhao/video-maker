@@ -24,3 +24,5 @@ class MatchData:
     region: str
     team1: Team
     team2: Team
+    player_role: str
+    player_index: str
