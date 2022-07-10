@@ -83,5 +83,5 @@ class RecordVideo:
 
     def remove_video_file(self):
         file = os.listdir(self.__video__file_dir)
-        if file:
-            os.remove(os.path.join(self.__replay_file_dir, file[0]))
+        os.rename(os.path.join(self.__video_file_dir, file[0]), os.path.join(
+            self.__video_file_dir, 'shorts', file[0]))
