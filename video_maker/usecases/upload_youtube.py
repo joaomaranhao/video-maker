@@ -14,12 +14,13 @@ from video_maker.entities.match_data import MatchData
 
 
 class UploadYoutube:
-    def __init__(self, match_data: MatchData) -> None:
-        self.__file = r"C:\Users\ilha\Videos\2022-07-06 15-33-02.mp4"
+    def __init__(self, match_data: MatchData, video_file_name: str) -> None:
+        self.__thumb_file = r'C:\youtube\lol\thumb\thumb.png'
+        self.__file = fr'C:\Users\Joao\Videos\{video_file_name}'
         self.__title = (
-            f"{match_data['mvp']['champion']} vs {match_data['loser']} - {match_data['region']} {match_data['mvp']['rank']} Patch {match_data['patch']}")
+            f"{match_data['mvp']['champion']} {match_data['player_role']} vs {match_data['loser']} - {match_data['region']} {match_data['mvp']['rank']} Patch {match_data['patch']}")
         self.__description = f"""
-    #{match_data['mvp']['champion']} played by {match_data['mvp']['name']} at #{match_data['region']}{match_data['mvp']['rank']}
+    {match_data['mvp']['champion']} {match_data['player_role']} played by {match_data['mvp']['name']} at #{match_data['region']}{match_data['mvp']['rank']}
 
     Data provided by https://leagueofgraphs.com
     """
@@ -58,6 +59,12 @@ class UploadYoutube:
         except HttpError as e:
             print(f"An HTTP error {e.resp.status} occurred:\n{e.content}")
 
+    def __upload_thumbnail(self, youtube, video_id):
+        youtube.thumbnails().set(
+            videoId=video_id,
+            media_body=self.__thumb_file
+        ).execute()
+
     def __build_video_data(self):
         return {
             "file": self.__file,
@@ -65,7 +72,7 @@ class UploadYoutube:
             "description": self.__description,
             "category": self.__category,
             "keywords": self.__keywords,
-            "privacyStatus": self.__VALID_PRIVACY_STATUSES[1]
+            "privacyStatus": self.__VALID_PRIVACY_STATUSES[0]
         }
 
     def __get_authenticated_service(self):
@@ -109,7 +116,8 @@ class UploadYoutube:
                 options['file'], chunksize=-1, resumable=True)
         )
 
-        self.__resumable_upload(insert_request)
+        video_id = self.__resumable_upload(insert_request)
+        self.__upload_thumbnail(youtube, video_id)
 
     def __resumable_upload(self, insert_request):
         response = None

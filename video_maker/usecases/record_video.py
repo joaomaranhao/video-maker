@@ -8,6 +8,7 @@ from entities.match_data import MatchData
 
 class RecordVideo:
     def __init__(self, match_data: MatchData) -> None:
+        self.__video__file_dir = r'C:\Users\Joao\Videos'
         self.__replay_file_dir = r'C:\youtube\lol\replays'
         self.__match_data = match_data
 
@@ -29,6 +30,8 @@ class RecordVideo:
         pydirectinput.click(962, 641)
         sleep(1)
         pydirectinput.leftClick(962, 641)
+        sleep(5)
+        return self.__select_video_file()
 
     def __run_game(self):
         file = os.listdir(self.__replay_file_dir)[0]
@@ -73,3 +76,12 @@ class RecordVideo:
         while True:
             print(pyautogui.position())
             sleep(1)
+
+    def __select_video_file(self):
+        file = os.listdir(self.__video__file_dir)
+        return file[0]
+
+    def remove_video_file(self):
+        file = os.listdir(self.__video__file_dir)
+        if file:
+            os.remove(os.path.join(self.__replay_file_dir, file[0]))
