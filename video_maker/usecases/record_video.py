@@ -78,7 +78,7 @@ class RecordVideo:
             sleep(1)
 
     def __select_video_file(self):
-        file = os.listdir(self.__video__file_dir)
+        file = os.listdir(self.__video_file_dir)
         return file[0]
 
     def remove_video_file(self):
