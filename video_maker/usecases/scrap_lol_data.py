@@ -1,3 +1,4 @@
+import os
 from time import sleep
 from selenium.webdriver.common.by import By
 from entities.data_scrapper import DataScrapper
@@ -9,6 +10,7 @@ class ScrapLolData(DataScrapper):
     def __init__(self) -> None:
         super().__init__()
         # URL
+        self.__replay_file_dir = r'C:\youtube\lol\replays'
         self.__url = 'https://www.leagueofgraphs.com/replays/with-high-kda/grandmaster/sr-ranked'
         self.__champions_xpath_selector = '//*[contains(concat( " ", @class, " " ), concat( " ", "relative", " " ))]//img'
         self.__match_table_selector = '//*[contains(concat( " ", @class, " " ), concat( " ", "matchTable", " " ))]'
@@ -57,6 +59,7 @@ class ScrapLolData(DataScrapper):
         self.match_data['region'] = link_array[4].upper()
         # Save Data
         save(self.match_data)
+        self.__remove_match()
         self.__download_match()
         self.quit()
 
@@ -134,3 +137,8 @@ class ScrapLolData(DataScrapper):
         sleep(1)
         self.driver.execute_script("arguments[0].click();", download_button)
         sleep(2)
+
+    def __remove_match(self):
+        file = os.listdir(self.__replay_file_dir)
+        if file:
+            os.remove(os.path.join(self.__replay_file_dir, file[0]))

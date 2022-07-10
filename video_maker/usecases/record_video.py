@@ -17,6 +17,10 @@ class RecordVideo:
         self.__run_obs()
         sleep(50)
         self.__select_player()
+        pydirectinput.keyDown('o')
+        pydirectinput.keyUp('o')
+        pydirectinput.keyDown('u')
+        pydirectinput.keyUp('u')
         sleep(5)
         self.__start_stop_recording()
         sleep(self.__duration_in_seconds())
@@ -42,10 +46,14 @@ class RecordVideo:
             keys = ['q', 'w', 'e', 'r', 't']
             pydirectinput.keyDown('f2')
             pydirectinput.keyUp('f2')
-            pydirectinput.keyDown(keys[int(self.__match_data['player_index'])])
-            pydirectinput.keyUp(keys[int(self.__match_data['player_index'])])
-            pydirectinput.keyDown(keys[int(self.__match_data['player_index'])])
-            pydirectinput.keyUp(keys[int(self.__match_data['player_index'])])
+            pydirectinput.keyDown(
+                keys[int(self.__match_data['player_index']) - 1])
+            pydirectinput.keyUp(
+                keys[int(self.__match_data['player_index']) - 1])
+            pydirectinput.keyDown(
+                keys[int(self.__match_data['player_index']) - 1])
+            pydirectinput.keyUp(
+                keys[int(self.__match_data['player_index']) - 1])
 
     def __start_stop_recording(self):
         pyautogui.keyDown('shiftleft')
