@@ -25,6 +25,10 @@ class RecordVideo:
         self.__start_stop_recording()
         sleep(self.__duration_in_seconds())
         self.__start_stop_recording()
+        sleep(10)
+        pydirectinput.click(962, 641)
+        sleep(1)
+        pydirectinput.leftClick(962, 641)
 
     def __run_game(self):
         file = os.listdir(self.__replay_file_dir)[0]
@@ -63,7 +67,7 @@ class RecordVideo:
 
     def __duration_in_seconds(self) -> int:
         array = self.__match_data['duration'].split(':')
-        return (int(array[0]) * 60) + int(array[1]) - 18
+        return (int(array[0]) * 60) + int(array[1]) - 15
 
     def __show_mouse_position(self):
         while True:
