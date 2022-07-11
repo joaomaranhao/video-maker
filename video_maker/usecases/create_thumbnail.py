@@ -11,6 +11,7 @@ class CreateThumbnail:
         self.__thumb_path = r'C:\youtube\lol\thumb\thumb.png'
 
     def create_thumbnail(self):
+        print('Criando thumbnail...')
         champion = self.lol_data['mvp']['champion'].replace(
             "'", "").capitalize()
         champion = self.lol_data['mvp']['champion'].replace(
@@ -28,6 +29,7 @@ class CreateThumbnail:
         sleep(2)
         self.scrapper.driver.set_window_size(1280, 805)
         self.scrapper.driver.save_screenshot(self.__thumb_path)
+        print('Thumbnail criada!')
         self.scrapper.driver.quit()
 
     def __create_html(self, kda: str, mvp: str, vs: str, region: str, patch: str, imgUrl: str):

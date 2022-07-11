@@ -60,6 +60,7 @@ class UploadYoutube:
             print(f"An HTTP error {e.resp.status} occurred:\n{e.content}")
 
     def __upload_thumbnail(self, youtube, video_id):
+        print('Fazendo upload da thumbnail')
         youtube.thumbnails().set(
             videoId=video_id,
             media_body=self.__thumb_file
@@ -90,6 +91,7 @@ class UploadYoutube:
                      http=credentials.authorize(httplib2.Http()))
 
     def __initialize_upload(self):
+        print('Fazendo upload do vídeo')
         youtube = self.__get_authenticated_service()
         options = self.__build_video_data()
         tags = None

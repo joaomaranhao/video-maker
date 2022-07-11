@@ -27,6 +27,7 @@ class ScrapLolData(DataScrapper):
         }
 
     def get_match_data_and_download_replay(self) -> None:
+        print('Acessando site e salvando informações...')
         self.driver.get(self.__url)
         table = self.driver.find_element(
             by=By.XPATH, value=self.__match_table_selector)
@@ -59,6 +60,8 @@ class ScrapLolData(DataScrapper):
         self.match_data['region'] = link_array[4].upper()
         # Save Data
         save(self.match_data)
+        print('Informações salvas')
+        print('Iniciando download da partida')
         self.__remove_match()
         self.__download_match()
         self.quit()

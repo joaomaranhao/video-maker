@@ -13,6 +13,7 @@ class DataScrapper:
         self.__options.set_preference(
             'browser.download.dir', self.__download_path)
         self.__options.set_preference("browser.download.folderList", 2)
+        self.__options.add_argument('--log-level=3')
         self.driver = webdriver.Firefox(service=FirefoxService(
             GeckoDriverManager().install()), options=self.__options)
 

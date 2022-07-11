@@ -1,10 +1,10 @@
 # Automatização de canal de Youtube
 
-A idéia desse projeto é automatizar a criação de vídeos, thumbnails e upload desse material para o Youtube.
+A ideia desse projeto é automatizar a criação de vídeos, thumbnails e upload desse material para o Youtube.
 
 É um canal de replays de partidas de um jogo chamado League of Legends.
 
-Todo o processo é automatizado, uma vez que o script é iniciado, ele consegue através de pequenos passos, criar conteúdo de forma programática.
+Todo o processo é automatizado. Uma vez que o script é iniciado, ele consegue através de pequenos passos, criar conteúdo de forma programática.
 
 O canal pode ser visualizado nesse link: [League of Legends Replays](https://www.youtube.com/channel/UC-C_dsVX2-G2UYA9IoD5i3Q)
 
@@ -19,7 +19,8 @@ O canal pode ser visualizado nesse link: [League of Legends Replays](https://www
 - [Python](https://www.python.org/downloads/) 3.9 ou superior ;
 - [Poetry](https://python-poetry.org/docs/) ;
 - [Firefox](https://www.mozilla.org/pt-BR/firefox/new/) 102 ou superior ;
-- [OBS](https://obsproject.com/pt-br/download) (Open Broadcaster Software)
+- [OBS](https://obsproject.com/pt-br/download) (Open Broadcaster Software) ;
+- Conta Google ;
 
 ## Tecnologias
 
@@ -49,7 +50,7 @@ Os módulos estão na pasta ```videomaker/usecases```:
 
 - create_thumbnail
 
-  Esse módulo cria uma thumbnail personalizada utilizando as informações obtidas pelo web scrapper
+  Esse módulo cria uma thumbnail personalizada com HTML e CSS utilizando as informações obtidas pelo web scrapper
 
   ![League of Legends Replays](./docs/images/thumb.png)
   #

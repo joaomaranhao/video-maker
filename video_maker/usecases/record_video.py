@@ -14,6 +14,7 @@ class RecordVideo:
 
     def record(self):
         # self.__show_mouse_position()
+        print('Iniciando gravação da partida...')
         self.__run_game()
         self.__run_obs()
         sleep(50)
@@ -28,9 +29,12 @@ class RecordVideo:
         self.__start_stop_recording()
         sleep(10)
         pydirectinput.click(962, 641)
+        pyautogui.click(962, 641)
         sleep(1)
         pydirectinput.leftClick(962, 641)
+        pyautogui.click(962, 641)
         sleep(5)
+        print('Partida gravada')
         return self.__select_video_file()
 
     def __run_game(self):
