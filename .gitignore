@@ -160,4 +160,5 @@ cython_debug/
 #.idea/
 
 # Credentials
-credentials
+client_secrets.json
+storage-oauth2.json
