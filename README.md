@@ -37,7 +37,7 @@ Os módulos estão na pasta ```videomaker/usecases```:
 
 - scrap_lol_data (web scrapper)
 
-  Entrar no site, seleciona a partida, coleta todas as informações necessárias e baixa o replay (executável do jogo)
+  Entra no site, seleciona a partida, coleta todas as informações necessárias e baixa o replay (executável do jogo)
 
   ![League of Legends Replays](./docs/images/match.png)
   #
