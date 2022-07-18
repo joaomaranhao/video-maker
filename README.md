@@ -1,12 +1,16 @@
-# Automatização de canal de Youtube
+# Youtube channel automation
 
-A ideia desse projeto é automatizar a criação de vídeos, thumbnails e upload desse material para o Youtube.
+<div style="text-align: center;"><a href="https://github.com/joaomaranhao/video-maker/blob/main/README_pt_br.md">pt-BR</a></div>
 
-É um canal de replays de partidas de um jogo chamado League of Legends.
+#
 
-Todo o processo é automatizado. Uma vez que o script é iniciado, ele consegue através de pequenos passos, criar conteúdo de forma programática.
+The idea of ​​this project is to automate the creation of videos, thumbnails and uploading this material to Youtube.
 
-O canal pode ser visualizado nesse link: [League of Legends Replays](https://www.youtube.com/channel/UC-C_dsVX2-G2UYA9IoD5i3Q)
+It is a channel of replays of matches of a game called League of Legends.
+
+The entire process is automated. Once the script is started, it manages, through small steps, to programmatically create content.
+
+The channel can be viewed at this link: [League of Legends Replays](https://www.youtube.com/channel/UC-C_dsVX2-G2UYA9IoD5i3Q)
 
 #
 
@@ -14,52 +18,56 @@ O canal pode ser visualizado nesse link: [League of Legends Replays](https://www
 
 #
 
-## Pré-Requisitos
+## Prerequisites
 
-- [Python](https://www.python.org/downloads/) 3.9 ou superior ;
+- [Python](https://www.python.org/downloads/) >=3.9 ;
 - [Poetry](https://python-poetry.org/docs/) ;
-- [Firefox](https://www.mozilla.org/pt-BR/firefox/new/) 102 ou superior ;
+- [Firefox](https://www.mozilla.org/pt-BR/firefox/new/) >=102 ;
 - [OBS](https://obsproject.com/pt-br/download) (Open Broadcaster Software) ;
-- Conta Google ;
+- Google Account ;
 
-## Tecnologias
+## Technologies
 
-- Web scraping com [Selenium](https://selenium-python.readthedocs.io/) ;
-- HTML e CSS para a criação da thumbnail ;
-- RPA (Robotic Process Automation) com [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/) ;
-- [API do Youtube](https://developers.google.com/youtube/v3/quickstart/python) ;
+- Web scraping with [Selenium](https://selenium-python.readthedocs.io/) ;
+- HTML and CSS for thumbnail creation ;
+- RPA (Robotic Process Automation) with [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/) ;
+- [Youtube API](https://developers.google.com/youtube/v3/quickstart/python) ;
 - OAuth 2 ;
 
-## Como funciona
+## How it works
 
-O projeto foi criado com 5 módulos separados, cada um com sua responsabilidade.
+The project was created with 5 separate modules, each with its own responsibility.
 
-Os módulos estão na pasta ```videomaker/usecases```:
+The modules are in the folder `videomaker/usecases`:
 
 - scrap_lol_data (web scrapper)
 
-  Entra no site, seleciona a partida, coleta todas as informações necessárias e baixa o replay (executável do jogo)
+  Enter the website, select the match, collect all the necessary data and download the replay (game executable)
 
   ![League of Legends Replays](./docs/images/match.png)
+
   #
 
 - data
 
-  Responsável por salvar e carregar as informações recebidas pelo web scrapper em um arquivo json
+  Responsible for saving and loading the information received by the web scrapper in a json file
+
   #
 
 - create_thumbnail
 
-  Esse módulo cria uma thumbnail personalizada com HTML e CSS utilizando as informações obtidas pelo web scrapper
+  This module creates a custom thumbnail with HTML and CSS using the information obtained by the web scrapper
 
   ![League of Legends Replays](./docs/images/thumb.png)
+
   #
 
 - record_video
 
-  Utiliza o PyAutoGUI e o PyDirectInput para controlar o jogo e o OBS para gravar a partida
+  Use PyAutoGUI and PyDirectInput to control the game and OBS to record the game
+
   #
 
 - upload_youtube
 
-  Responsável por preencher informações como título, descrição e palavras-chave, fazer upload do vídeo e da thumbnail
+  Responsible for filling information such as title, description and keywords, uploading the video and thumbnail
